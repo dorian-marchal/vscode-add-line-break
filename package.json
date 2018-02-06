@@ -4,6 +4,7 @@
     "description": "Visual Studio Code package to add line breaks before/after a selection",
     "version": "0.0.1",
     "publisher": "dorian-marchal",
+    "repository": "https://github.com/dorian-marchal/vscode-add-line-break",
     "engines": {
         "vscode": "^1.19.0"
     },
@@ -11,14 +12,33 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello"
+        "onCommand:extension.addNewLineBeforeSelection",
+        "onCommand:extension.addNewLineAfterSelection"
     ],
     "main": "./out/extension",
     "contributes": {
         "commands": [
             {
-                "command": "extension.sayHello",
-                "title": "Hello World"
+                "command": "extension.addNewLineBeforeSelection",
+                "title": "Add new line before selection"
+            },
+            {
+                "command": "extension.addNewLineAfterSelection",
+                "title": "Add new line after selection"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "extension.addNewLineBeforeSelection",
+                "key": "ctrl+down",
+                "mac": "cmd+down",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "extension.addNewLineAfterSelection",
+                "key": "ctrl+up",
+                "mac": "cmd+up",
+                "when": "editorTextFocus"
             }
         ]
     },
