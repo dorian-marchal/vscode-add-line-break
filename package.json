@@ -1,58 +1,66 @@
 {
-    "name": "add-line-break",
-    "displayName": "add-line-break",
-    "description": "Visual Studio Code package to add line breaks before/after a selection",
-    "version": "0.0.1",
-    "publisher": "dorian-marchal",
-    "repository": "https://github.com/dorian-marchal/vscode-add-line-break",
-    "engines": {
-        "vscode": "^1.19.0"
-    },
-    "categories": [
-        "Other"
+  "name": "add-line-break",
+  "displayName": "Add line break",
+  "description": "Add line breaks before/after selections",
+  "version": "0.0.2",
+  "publisher": "dorian-marchal",
+  "repository": "https://github.com/dorian-marchal/vscode-add-line-break",
+  "engines": {
+    "vscode": "^1.43.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.addNewLineBeforeSelection",
+    "onCommand:extension.addNewLineAfterSelection"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.addNewLineBeforeSelection",
+        "title": "Add new line before selection"
+      },
+      {
+        "command": "extension.addNewLineAfterSelection",
+        "title": "Add new line after selection"
+      }
     ],
-    "activationEvents": [
-        "onCommand:extension.addNewLineBeforeSelection",
-        "onCommand:extension.addNewLineAfterSelection"
-    ],
-    "main": "./out/extension",
-    "contributes": {
-        "commands": [
-            {
-                "command": "extension.addNewLineBeforeSelection",
-                "title": "Add new line before selection"
-            },
-            {
-                "command": "extension.addNewLineAfterSelection",
-                "title": "Add new line after selection"
-            }
-        ],
-        "keybindings": [
-            {
-                "command": "extension.addNewLineBeforeSelection",
-                "key": "ctrl+down",
-                "mac": "cmd+down",
-                "when": "editorTextFocus"
-            },
-            {
-                "command": "extension.addNewLineAfterSelection",
-                "key": "ctrl+up",
-                "mac": "cmd+up",
-                "when": "editorTextFocus"
-            }
-        ]
-    },
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "npm run compile && node ./node_modules/vscode/bin/test"
-    },
-    "devDependencies": {
-        "typescript": "^2.6.1",
-        "vscode": "^1.1.6",
-        "@types/node": "^7.0.43",
-        "@types/mocha": "^2.2.42"
-    }
+    "keybindings": [
+      {
+        "command": "extension.addNewLineBeforeSelection",
+        "key": "ctrl+down",
+        "mac": "cmd+down",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "extension.addNewLineAfterSelection",
+        "key": "ctrl+up",
+        "mac": "cmd+up",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint src --ext ts",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^7.0.1",
+    "@types/node": "^12.11.7",
+    "@types/vscode": "^1.43.0",
+    "eslint": "^6.8.0",
+    "@typescript-eslint/parser": "^2.18.0",
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "glob": "^7.1.6",
+    "mocha": "^7.0.1",
+    "typescript": "^3.7.5",
+    "vscode-test": "^1.3.0"
+  }
 }
