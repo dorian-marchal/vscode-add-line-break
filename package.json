@@ -2,9 +2,13 @@
   "name": "add-line-break",
   "displayName": "Add line break",
   "description": "Add line breaks before/after selections",
-  "version": "0.0.2",
+  "icon": "img/icon.png",
+  "version": "0.0.4",
   "publisher": "dorian-marchal",
-  "repository": "https://github.com/dorian-marchal/vscode-add-line-break",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dorian-marchal/vscode-add-line-break"
+  },
   "engines": {
     "vscode": "^1.43.0"
   },
